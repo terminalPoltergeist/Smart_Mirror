@@ -2,6 +2,9 @@
 # xrandr --output HDMI1 --rotate right
 # rotate screen for mirror?
 
+
+# check threading or api calling to fix bug
+
 import tkinter as tk
 from time import strftime
 import datetime
@@ -10,7 +13,6 @@ import requests
 import time
 import PIL as p
 import PIL.ImageTk as ptk
-import pprint
 import threading
 
 
@@ -19,8 +21,6 @@ def currenttime():
     x = datetime.datetime.now()
     current_time = x.strftime('%-I')
 
-
-ptk
 
 currenttime()
 
@@ -482,7 +482,6 @@ ficonlab1 = tk.Label(forc_frame, image=ficon1, bg='black')
 ficonlab1.place(relx=0.25, rely=0.3)
 ficonlab1.after(3600000, icopick)
 
-
 forcicopick2()
 fi2 = p.Image.open(fico2)
 fi2 = fi2.resize((50, 50))
@@ -507,7 +506,7 @@ forctimlab1.place(relx=0.24, rely=0.05)
 aplab1 = tk.Label(forc_frame, font=('Courier New', 20, 'italic'),
                   bg='black', fg='white')
 aplab1.place(relx=0.295, rely=0.08)
-forctime1()
+orctime1()
 
 forctimlab2 = tk.Label(forc_frame, font=(
     'Courier New', 20, 'bold', 'italic'), bg='black', fg='white', justify='center')
@@ -560,7 +559,6 @@ def newsstop():
 
 t2 = threading.Thread(target=newsstop)
 t2.start()
-
 
 attlab = tk.Label(attribution_frame, text=("Powered by:\n News API"), font=(
     'Courier New', 15, 'italic'), bg='black', fg='white', justify='center')
